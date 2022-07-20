@@ -1,0 +1,14 @@
+package ex02_casting;
+
+public class Ex03 {
+
+	public static void main(String[] args) {
+		
+		String strScore = "100";
+		String stcMoney = "10000000000";
+		Stirng strGrade = "4.5"; 
+		
+
+	}
+
+}
