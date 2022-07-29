@@ -163,7 +163,7 @@ public class prac1 {
 			{
 				if ( arr[i] >  total )
 				{
-					System.out.println("1등은 :" + );
+		//			System.out.println("1등은 :" + );
 				}
 				
 			}
