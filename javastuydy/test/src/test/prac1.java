@@ -123,26 +123,20 @@ public class prac1 {
 					System.out.println("다음에는 1~100 사이로 입력하세요");
 					break;
 					
-				}
-				else if( 	arr[i] == ( j = randoms)		 ) 
-				{           
-					continue;
-					
-					
-				}
+				}				
 				
-				/*
-				for ( j = 0; j <= i; j++  )
+				
+				for ( j = 0; j < i; j++  )
 				{
 					if (arr[j] ==  randoms )
 					{
-						continue;
-					}else {
 						
+						i--;
+						continue;
 					}
 					
 				}
-				*/
+				
 				System.out.println(arr[i] + "\t");
 				
 				
