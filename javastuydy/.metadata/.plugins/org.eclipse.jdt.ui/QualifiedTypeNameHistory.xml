@@ -8,7 +8,6 @@
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="ex01_field.User"/>
     <fullyQualifiedTypeName name="ex02_field.School"/>
     <fullyQualifiedTypeName name="ex02_field.Student"/>
@@ -19,4 +18,11 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="ex07_constructor.Computer"/>
+    <fullyQualifiedTypeName name="ex08_access_modifier.User"/>
+    <fullyQualifiedTypeName name="ex09_this.School"/>
+    <fullyQualifiedTypeName name="ex10_this.Rectangle"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="ex11_static.MyMath"/>
+    <fullyQualifiedTypeName name="ex02_is_a.Hybrid"/>
 </qualifiedTypeNameHistroy>
