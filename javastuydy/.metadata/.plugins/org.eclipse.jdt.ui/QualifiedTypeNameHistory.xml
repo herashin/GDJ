@@ -27,4 +27,6 @@
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.generic.SWITCH"/>
     <fullyQualifiedTypeName name="com.sun.source.tree.WhileLoopTree"/>
+    <fullyQualifiedTypeName name="ex07_override.ExtraWater"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>
