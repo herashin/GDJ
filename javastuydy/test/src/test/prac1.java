@@ -113,7 +113,7 @@ public class prac1 {
 			int[] arr = new int[Arrnume];
 			int j;
 			
-			for ( int i =0; i < Arrnume; i++  )
+			randomConti :	for ( int i =0; i < Arrnume; i++  )
 			{
 				int randoms = (int)(Math.random() * 100)+ 1;
 				arr[i] = randoms;
@@ -132,7 +132,7 @@ public class prac1 {
 					{
 						
 						i--;
-						continue;
+						continue randomConti;
 					}
 					
 				}
@@ -140,7 +140,15 @@ public class prac1 {
 				System.out.println(arr[i] + "\t");
 				
 				
-			}			
+			}		
+			
+			
+		
+			
+			
+			
+			
+			
 		}
 		/*************** 4번문제  ***************/
 		
