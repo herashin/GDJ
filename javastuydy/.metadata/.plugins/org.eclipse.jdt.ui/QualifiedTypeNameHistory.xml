@@ -28,5 +28,7 @@
     <fullyQualifiedTypeName name="com.sun.org.apache.bcel.internal.generic.SWITCH"/>
     <fullyQualifiedTypeName name="com.sun.source.tree.WhileLoopTree"/>
     <fullyQualifiedTypeName name="ex07_override.ExtraWater"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="quiz03_bus.Student"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>
