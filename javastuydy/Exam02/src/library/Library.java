@@ -35,15 +35,26 @@ public class Library {
 			return;
 		}
 		System.out.println("===책삭제===");
-		System.out.print("삭제할 책의 번호(1~" + idx + ") >>>> ");
-		int bookNo = sc.nextInt() -1;
+		System.out.print("삭제할 책의 번호 >>>> ");
+		int bookNo = sc.nextInt();
+		for ( int i = 0; i < idx; i ++ )
+		{
+			if( books[i].getBookNo() == bookNo  )
+			{
+				System.arraycopy(books, i+1, books, i, idx - i - 1);
+				books[--idx] = null;
+				System.out.println("책 번호가 "+ bookNo + "인 책을 삭제했읍니다.");
+				return;
+			}
+		}
+		System.out.println("책 번호가 " + bookNo + "인 책이 없습니다.");
+		/*
 		if(bookNo < 0 || bookNo >= idx) {
 			System.out.println(" 책 번호가 " + ( bookNo + 1 ) + "인 책은 없습니다." );
 			return;
 		}
-		System.arraycopy(books, bookNo+1, books, bookNo, idx - bookNo - 1);
-		books[--idx] = null;
-		System.out.println("책 번호가 "+ (bookNo + 1) + "인 책을 삭제했읍니다.");
+		*/
+		
 	}
 	
 	private void findBook() {
@@ -89,9 +100,8 @@ public class Library {
 	public void manage() {
 		
 		while( true ) {
-			System.out.print("1. 추가 2.삭제 3.조회 4.전체목록 0.프로그램종료 >>>");
+			System.out.print("1. 추가 2.삭제 3.조회 4.전체목록 0.프로그램종료 >>> ");
 			int choice = sc.nextInt();
-			sc.nextInt();
 			
 			switch (choice) {
 			case 1:addBook();break;
