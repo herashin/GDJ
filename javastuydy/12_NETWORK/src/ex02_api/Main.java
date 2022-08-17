@@ -1,6 +1,9 @@
 package ex02_api;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -8,6 +11,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 
 
@@ -44,18 +55,17 @@ public class Main {
 		try {
 		
 			String serviceKey = "B33lG0+L/a55DgCaRf5Dj9AC14JCZx8/m8jJKZwCQQbg2F7vdTjkLe0wj7rDusbAuTUOTmpmJtVPXVv0sbe+lw==";
-		apiURL += "?pageNo=0" + URLEncoder.encode("0", "UTF-8");
-		apiURL += "&nmOfRows=100" + URLEncoder.encode("100", "UTF-8");
-		apiURL += "&type=xml" + URLEncoder.encode("xml", "UTF-8");
-        
-        
+			apiURL += "?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8");
+			
+		apiURL += "&pageNo=" + URLEncoder.encode("0", "UTF-8");
+		apiURL += "&numOfRows=" + URLEncoder.encode("100", "UTF-8");
+		apiURL += "&type=" + URLEncoder.encode("xml", "UTF-8");        
         apiURL += "&CTPRVN_NM=" + URLEncoder.encode("인천광역시", "UTF-8");
         apiURL += "&SIGNGU_NM=" + URLEncoder.encode("계양구", "UTF-8");
-        apiURL += "&WEIGHTED_ENVLP_TY=" + URLEncoder.encode("규격봉투", "UTF-8");
+        apiURL += "&WEIGHTED_ENVLP_TYPE=" + URLEncoder.encode("규격봉투", "UTF-8");
         apiURL += "&WEIGHTED_ENVLP_MTHD=" + URLEncoder.encode("소각용", "UTF-8");
         apiURL += "&WEIGHTED_ENVLP_PRPOS=" + URLEncoder.encode("생활쓰레기", "UTF-8");
         apiURL += "&WEIGHTED_ENVLP_TRGET=" + URLEncoder.encode("기타", "UTF-8");     
-        apiURL += "&serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8");
         
 		}catch( UnsupportedEncodingException e ) {
 			e.printStackTrace();
@@ -108,8 +118,73 @@ public class Main {
 			System.out.println("API 응답 실패");
 		}
 		
-		
 		String response = sb.toString();
+		
+		File file = new File("C:\\storage", "api.xml");
+		
+		try {
+			
+			BufferedWriter bw = new BufferedWriter( new FileWriter(file) );
+			bw.write(response);
+			bw.close();
+			
+		}catch( IOException e ) {
+			e.printStackTrace();
+			
+		}
+		
+		
+		try {
+		
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document doc = builder.parse(file);
+		
+		Element root = doc.getDocumentElement();
+		NodeList nodeList =  root.getChildNodes();
+		
+		
+		for ( int i = 0; i < nodeList.getLength();  i++  ) {
+			Node node = nodeList.item(i);
+			System.out.println( "  " +node.getNodeName()  );
+			NodeList nodeList2 = node.getChildNodes();
+			
+			for( int j = 0; j < nodeList2.getLength(); j ++  ) {
+				Node node2 = nodeList2.item(j);
+				System.out.println("    "+node2.getNodeName());
+				if( node2.getNodeName().equals("items")  ) {
+					NodeList items = node2.getChildNodes();
+					for( int k = 0; k < items.getLength(); k++ ) {
+						Node item = items.item(k);
+						System.out.println("       " + item.getNodeName());
+						NodeList itemchildren = item.getChildNodes();
+						for( int l = 0; l < itemchildren.getLength(); l++ ) {
+							Node itemchild = itemchildren.item(l);
+							System.out.println("                " + itemchild.getNodeName() + ":" + itemchild.getTextContent());
+							
+							
+						}
+						
+					}
+					
+					
+				} 
+				
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		}catch( Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
 		System.out.println(response);
 		
 	}

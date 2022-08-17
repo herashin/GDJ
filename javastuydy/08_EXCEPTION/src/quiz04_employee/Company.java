@@ -1,4 +1,3 @@
-/*
 package quiz04_employee;
 
 import java.util.InputMismatchException;
@@ -119,5 +118,3 @@ public class Company {
 	}
 	
 }
-
-*/
