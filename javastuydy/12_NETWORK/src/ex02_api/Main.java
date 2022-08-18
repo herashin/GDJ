@@ -451,16 +451,44 @@ public class Main {
 			
 		}
 		
+		try{
 		
-	    StringBuilder urlBuilder = new StringBuilder();
-	    
-
-	    
+	    StringBuilder urlBuilder = new StringBuilder();	    
 	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	    DocumentBuilder builder = factory.newDocumentBuilder();
 	    Document doc = builder.parse(file);
+	    
+	    Element root = doc.getDocumentElement();
+	    Node title = root.getElementsByTagName("title").item(0);
+		urlBuilder.append(title.getTextContent() );
 		
+		Node pubDt = root.getElementsByTagName("pubDate").item(0);
+		urlBuilder.append(pubDt.getTextContent() );
 		
+		System.out.println(title.getTextContent());
+		System.out.println(pubDt.getTextContent());
+		
+		NodeList data = root.getElementsByTagName("data");
+		
+		for(int i = 0; i < data.getLength(); i++) {
+			
+			Element items = (Element)data.item(i);
+			Node hour = items.getElementsByTagName("hour").item(0);
+			Node temp = items.getElementsByTagName("temp").item(0);
+			Node wfKor = items.getElementsByTagName("wfKor").item(0);
+			
+			
+			System.out.print(hour.getTextContent() + " 시	");
+			System.out.print(temp.getTextContent() + " 도	");
+			System.out.print(wfKor.getTextContent());
+			System.out.println();
+			
+		}
+		
+		}catch( Exception e) {
+			e.printStackTrace();
+			
+		}
 		
 		
 	}
@@ -468,16 +496,7 @@ public class Main {
 		
 	
 
-		import java.io.BufferedReader;
-		import java.io.BufferedWriter;
-		import java.io.File;
-		import java.io.FileWriter;
-		import java.io.IOException;
-		import java.io.InputStreamReader;
-		import java.net.HttpURLConnection;
-		import java.net.MalformedURLException;
-		import java.net.URL;
-
+	
 	
 				
 				try {
@@ -582,8 +601,8 @@ public class Main {
 	//	m3();
 		//m5();
 	//	m6();
-	//	m7();
-		m10();
+		m7();
+	//	m10();
 	}
 
 }
