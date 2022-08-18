@@ -265,6 +265,55 @@ public class Main {
 		
 	}
 	
+	public static void m4() {
+		
+		// xml 파싱
+		
+		File file = new File("C:\\storage", "api2.xml");
+		
+		try {
+			
+			// api2.xml 문서 -> doc 객체
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			// api2.xml 문서의 최상위 태그 -> root
+			Element root = doc.getDocumentElement();
+			
+			// <item>...</item> 태그 하나 == 특정 날짜의 데이터
+			StringBuilder sb = new StringBuilder();
+			NodeList items = root.getElementsByTagName("item");  // 태그 이름으로 찾기
+			for(int i = 0; i < items.getLength(); i++) {
+				Node item = items.item(i);
+				NodeList itemChildren = item.getChildNodes();
+				for(int j = 0; j < itemChildren.getLength(); j++) {
+					Node itemChild = itemChildren.item(j);
+					if(itemChild.getNodeName().equals("stateDt")) {
+						sb.append(" 날짜 : ").append(itemChild.getTextContent());
+					}
+					else if(itemChild.getNodeName().equals("decideCnt")) {
+						sb.append(" 확진자수 : ").append(itemChild.getTextContent());
+					}
+					else if(itemChild.getNodeName().equals("deathCnt")) {
+						sb.append(" 사망자수 : ").append(itemChild.getTextContent());
+					}
+				}
+				sb.append("\n");
+				// Node stateDt             == <stateDt>20220812</stateDt>
+				// stateDt.getNodeName()    == stateDt  (태그이름)
+				// stateDt.getTextContent() == 20220812 (태그내부텍스트)
+			}
+			System.out.println(sb.toString());
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
 	public static void m5() {
 		// 초단기 날씨 예측
 	      //오늘날짜, 11시 기준ㅡ 파일명 api3.xml
@@ -492,6 +541,46 @@ public class Main {
 		
 		
 	}
+	
+	public static void m8() {
+
+		File file = new File("C:\\storage", "api4.xml");
+		
+		try {
+			
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(file);
+			
+			Element root = doc.getDocumentElement();
+			
+			StringBuilder sb = new StringBuilder();
+			
+			Node title = root.getElementsByTagName("title").item(0);
+			sb.append(title.getTextContent()).append("\n");
+			
+			Node pubDate = root.getElementsByTagName("pubDate").item(0);
+			sb.append(pubDate.getTextContent()).append("\n");
+			
+			NodeList dataList = root.getElementsByTagName("data");
+			for(int i = 0; i < dataList.getLength(); i++) {
+				Element data = (Element)dataList.item(i);
+				Node hour = data.getElementsByTagName("hour").item(0);
+				Node temp = data.getElementsByTagName("temp").item(0);
+				Node wfKor = data.getElementsByTagName("wfKor").item(0);
+				sb.append(hour.getTextContent()).append("시 ");
+				sb.append(temp.getTextContent()).append("도 ");
+				sb.append(wfKor.getTextContent()).append("\n");
+			}
+			
+			System.out.println(sb.toString());
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void m9(){
 		
 	
