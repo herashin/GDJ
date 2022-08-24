@@ -14,34 +14,46 @@ import java.net.URLEncoder;
 
 public class ApiMain {
 
-public static void Accident() {
+
+	public static void main(String[] args) {
+	
 		
 
-			String apiURL = "http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath";
-			String serviceKey = "B33lG0+L/a55DgCaRf5Dj9AC14JCZx8/m8jJKZwCQQbg2F7vdTjkLe0wj7rDusbAuTUOTmpmJtVPXVv0sbe+lw==";
+		//	String apiURL = "http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath";
+			
+			
+			StringBuilder urlbuilder = new StringBuilder();
+			
 			
 			try {				
+				String serviceKey = "B33lG0+L/a55DgCaRf5Dj9AC14JCZx8/m8jJKZwCQQbg2F7vdTjkLe0wj7rDusbAuTUOTmpmJtVPXVv0sbe+lw==";
+				urlbuilder.append("http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath");
+				urlbuilder.append( "?serviceKey=" ).append(URLEncoder.encode(serviceKey,"UTF-8"));
+				urlbuilder.append("&searchYear=2021");
+				urlbuilder.append("&siDo=1100");
+				urlbuilder.append("&guGun=1125");
+				urlbuilder.append("&type=json");
+				urlbuilder.append("&numOfRows=10");
+				urlbuilder.append("&pageNo=10");
 				
-			//	apiURL += "?type=" + URLEncoder.encode("json", "UTF-8");		
-				apiURL += "?occrrnc_dt=" + URLEncoder.encode("2019011622", "UTF-8");
-				apiURL += "&occrrnc_day_cd=" + URLEncoder.encode("4", "UTF-8");
-				apiURL += "&occrrnc_day_cd=" + URLEncoder.encode("4", "UTF-8");
-				apiURL += "&dth_dnv_cnt=" + URLEncoder.encode("0", "UTF-8");
-				apiURL += "&injpsn_cnt=" + URLEncoder.encode("1", "UTF-8");
-
-				apiURL += "&serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8");
+				
+		
 				
 			} catch(UnsupportedEncodingException e) {
-				System.out.println("인코딩 실패");
+				e.printStackTrace();
 			}
 			
-			
-			// API 주소 접속
-			URL url = null;
 			HttpURLConnection con = null;
 			
+		
+			
 			try {			
-				url = new URL(apiURL);
+				URL url = new URL(urlbuilder.toString());
+				con = (HttpURLConnection)url.openConnection();
+				con.setRequestMethod(null);
+				
+				
+				
 				con = (HttpURLConnection) url.openConnection();
 				con.setRequestMethod("GET");
 				con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
@@ -93,31 +105,9 @@ public static void Accident() {
 		
 	
 	
-	public static void main(String[] args) {
-		/*
-		JSONObject obj = new JSONObject(Accident());
-	//	JSONObject header = obj.getJSONObject("header");
-	//	JSONArray columns = header.getJSONArray("columns");
-		
-		JSONObject body = obj.getJSONObject("body");
-		JSONArray items = body.getJSONArray("items");
-		JSONObject item = items.getJSONObject(0);
-		
-		String[] p = {"trarNo", "mainTrarNm", "ctprvnCd", "ctprvnNm", "signguCd", "signguNm", "trarArea", "coordNum", "coords", "stdrDt"};
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		for(int i = 0; i < columns.length(); i++) {
-			map.put(columns.getString(i), item.get(p[i]));
-		}
-		
-		System.out.println(map);
-		*/
-		Accident();
-	//	Accident_load();
 		
 		
 		
-		
-	}
+	
 
 }
