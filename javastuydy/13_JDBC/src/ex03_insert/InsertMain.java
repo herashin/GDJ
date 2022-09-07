@@ -43,7 +43,11 @@ public class InsertMain {
 			String password = "TIGER";
 			con = DriverManager.getConnection(url, user, password);
 			
+			// 쿼리문 작성(변수 처리할 부분은 ? 로 처리)
 			String sql = "INSERT INTO BOARD(BOARD_NO,TITLE,CONTENT,HIT,CREATE_DATA) VALUES(BOARD_DEQ.NEXTVAL, ?,?,0,SYSDATE)";
+			
+			
+			// Statement 도 있지만 안쓰는 이유는 보안때문. 
 			ps = con.prepareStatement(sql);
 			// 쿼리문에 포함된 ? 에 변수 전달하기
 			// 쿼리문에 작성된 ? 의 순서대로 채워줌
