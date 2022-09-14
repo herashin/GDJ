@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #F5F6F7;
+        }
+
+        h1{
+            width:240px; margin:0 auto;
+        }
+        h1 img{width:100%;}
+        .main{
+            width:500px; margin:0 auto;
+
+        }
+        /*
+        .labels_p_box{
+            border: 1px solid #ddd;
+
+        }
+        */
+        .labelss{
+            color:#ff0000;
+
+        }
+
+
+        .inputss{
+
+            width: 460px;
+            height: 51px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+        <div class="main">
+            <h1><img src="../../images/naver.png"></h1>
+
+            <div class="contaner">
+                <form method="post" action="">
+                    <p class="labels_p_box">
+                        <label class="labelss" for="userId">아이디</label>
+                        <input class="inputss" type="text" name="userId" id="userId" >
+                    </p>
+                   
+                    <p class="labels_p_box">
+                        <label class="labelss" for="userPassword">비밀번호</label>
+                        <input class="inputss" type="password" name="userPassword" id="userPassword" >
+                    </p>
+
+                    <p class="labels_p_box">
+                        <label class="labelss" for="userPasswordRe">비밀번호 재확인</label>
+                        <input class="inputss" type="password" name="userPasswordRe" id="userPasswordRe" >
+                    </p>
+
+
+                    <p class="labels_p_box">
+                        <label class="labelss" for="userName">이름</label>
+                        <input class="inputss" type="text" name="userName" id="userName" >
+                    </p>
+
+
+
+                    <p class="labels_p_box">
+                        <label class="labelss" for="yy">생년월일</label>
+                        <input class="" type="text" name="yy" id="yy" maxlength="4" placeholder="년(4자)">
+                        <select name="mm" id="mm">
+                            <option value="1월"></option>
+                            <option value="2월"></option>
+                            <option value="3월"></option>
+                            <option value="4월"></option>
+                            <option value="5월"></option>
+                            <option value="6월"></option>
+                            <option value="7월"></option>
+                            <option value="8월"></option>
+                            <option value="9월"></option>
+                            <option value="10월"></option>
+                            <option value="11월"></option>
+                            <option value="12월"></option>
+                        </select>
+                        <input type="text" name="dd" id="dd" placeholder="일">
+                    </p>
+
+                    <p class="labels_p_box">
+                        <label class="labelss" for="gender">성별</label>
+                        <select name="gender" id="gender">
+                            <option value="m">남자</option>
+                            <option value="w">여자</option>
+                            <option value="none">선택안함</option>
+                        </select>
+                    </p>
+
+
+
+
+
+
+                    <div class="submit_box">
+                        <button>가입하기</button>
+                    </div>
+
+                </form>
+
+
+
+
+            </div>
+
+
+        </div>
+       
+
+
+
+
+    </div>
+
+
+</body>
+</html>
