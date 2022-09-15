@@ -17,7 +17,7 @@
         h1 img{width:100%;}
         .main{
             width:500px; margin:0 auto;
-
+            overflow: hidden;
         }
         /*
         .labels_p_box{
@@ -26,15 +26,45 @@
         }
         */
         .labelss{
-            color:#ff0000;
-
+            color:#000;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
 
         .inputss{
-
+            border:none;
+            border:solid 1px #dadada;
             width: 460px;
             height: 51px;
+
+        }
+
+
+        .input_burth{
+            width:147px; height:45px;
+        }
+        .input_burth[name="mm"]{
+            height:51px;
+        }
+
+        select[name="gender"]{
+            border:none;
+            border:solid 1px #dadada;
+            width: 466px;
+            height: 51px;
+
+        }
+        
+
+        .submit_box button{
+            cursor: pointer;
+            width:466px; height:51px;
+            background-color: #03C75A;
+            color:#fff; font-size:24px;
+            font-weight: bold;
+            border: none;
 
         }
     </style>
@@ -68,29 +98,29 @@
                         <input class="inputss" type="text" name="userName" id="userName" >
                     </p>
 
-
-
+       
                     <p class="labels_p_box">
                         <label class="labelss" for="yy">생년월일</label>
-                        <input class="" type="text" name="yy" id="yy" maxlength="4" placeholder="년(4자)">
-                        <select name="mm" id="mm">
-                            <option value="1월"></option>
-                            <option value="2월"></option>
-                            <option value="3월"></option>
-                            <option value="4월"></option>
-                            <option value="5월"></option>
-                            <option value="6월"></option>
-                            <option value="7월"></option>
-                            <option value="8월"></option>
-                            <option value="9월"></option>
-                            <option value="10월"></option>
-                            <option value="11월"></option>
-                            <option value="12월"></option>
+                        <input class="input_burth" type="text" name="yy" id="yy" maxlength="4" placeholder="년(4자)">
+                        <select name="mm" id="mm" class="input_burth">
+                            <option value="1월">1월</option>
+                            <option value="2월">2월</option>
+                            <option value="3월">3월</option>
+                            <option value="4월">4월</option>
+                            <option value="5월">5월</option>
+                            <option value="6월">6월</option>
+                            <option value="7월">7월</option>
+                            <option value="8월">8월</option>
+                            <option value="9월">9월</option>
+                            <option value="10월">10월</option>
+                            <option value="11월">11월</option>
+                            <option value="12월">12월</option>
                         </select>
-                        <input type="text" name="dd" id="dd" placeholder="일">
+                        <input class="input_burth" type="text" name="dd" id="dd" placeholder="일">
                     </p>
 
                     <p class="labels_p_box">
+                        
                         <label class="labelss" for="gender">성별</label>
                         <select name="gender" id="gender">
                             <option value="m">남자</option>
@@ -99,7 +129,8 @@
                         </select>
                     </p>
 
-
+                    
+                   
 
 
 
