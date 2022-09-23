@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+
+    <style>
+
+        .boxx{
+            width: 200px;
+            height: 50px;
+            border: 1px solid grey;
+            
+        }
+        .box1{
+            overflow:scroll
+        }
+        .box2{
+            overflow-x: scroll;
+        }
+
+        .box3{
+            overflow:hidden;
+        }
+
+    </style>
+    
+    <div class="box1 boxx">
+        What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+    </div>
+
+    <hr>
+
+    <div class="box2 boxx">
+        <p style="width:500px; height:2px"></p>
+        What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+    </div>
+
+    <hr>
+
+    <div class="box3 boxx">
+        What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+    </div>
+
+    <hr>
+    <style>
+        .box4{
+            width: 200px;
+            height: 50px;
+            border: 1px solid grey;
+            overflow: hidden;
+        }
+
+        .box4 > div{
+            width: 150px;
+            height: 40px;
+            border: 1px solid #000;
+        }
+
+    </style>
+    
+    <div class="box4">
+        <div>box1</div>
+        <div>box2</div>
+        <div>box3</div>
+    </div>
+
+
+</body>
+</html>
