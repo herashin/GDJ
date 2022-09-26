@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        *{margin:0; padding:0;}
+
+        #wrap{
+            width:700px; margin:10px;
+        }
+        .logo{width: 176px;}
+        .logo > img{width: 100%;}
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+
+        <p class="logo"><img src="logo.png" alt="구디아카데미로고"></p>
+        <form action="https://www.gdu.co.kr/member/login_01.html" method="post">
+            <div>
+                <p><input id="user_id" type="text" placeholder="아이디"></p>
+                <p><input id="user_pw" type="password" placeholder="비밀번호"></p>
+                <p><button>로그인</button></p>
+            </div>
+            <div>
+                <input id="login_check" name="login_check" type="checkbox" checked >
+                <label for="login_check">자동 로그인</label>
+
+                <input id="psw_check" name="psw_check" type="checkbox"  checked>
+                <label for="psw_check">비밀번호 저장</label>
+
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
