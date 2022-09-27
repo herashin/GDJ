@@ -14,8 +14,7 @@
         }
         .wrap{width:700px; margin:50px auto ;}
 
-        form{
-            
+        form{            
             display: flex;
         }
 
@@ -51,12 +50,7 @@
         }
         .user_pw_area{
             margin-top: 10px;
-        }
-        .section2{
-           
-
-
-        }
+        }       
         .section2 button{
             border: none;
             width:120px;
@@ -71,7 +65,7 @@
 
     <div class="wrap">
 
-        <form action="">
+        <form action="" method="post">
 
             <section class="section1">
                 <div class="user_name_area">
@@ -94,7 +88,25 @@
 
         </form>
 
+        <style>
+            .verti_input{
+                display: inline-block;
+                vertical-align: middle;
+            }
 
+            .verti_span{    
+                    width: 300px;
+                    height: 50px;
+                    display: inline-block;
+                    font-size: 40px;
+                    vertical-align: middle;
+                }
+        </style>
+        <div>
+            <input class="verti_input" type="text" >
+            <span class="verti_span">버티컬 얼라인</span>
+
+        </div>
 
     </div>
 

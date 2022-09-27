@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        if( confirm('진행할까요?') ){
+            alert('진행합니다');
+
+        }else{
+
+            alert('취소합니다');
+        }
+
+    </script>
+    <div>
+        <div>평균 : <span id="ave"></span>점</div>
+        <div>학점 : <span id="gre"></span></div>
+    </div>
+    <script>
+
+        var a,b,c;
+
+        // 국어, 영어, 수학 점수를 차례대로 입력 받아서 평균, 학점 ( A ~ F ) 출력
+        var a = Number(prompt('국어 점수 입력')) ;
+    //   alert(a + ', ');
+
+        var b = Number(prompt('영어 점수 입력')) ;
+     //   alert(b + ', ');
+
+        var c = Number(prompt('수학 점수 입력'));
+     //   alert(c + ', ');
+
+        var total = (a+b+c) / 3;
+        var ave = document.getElementById('ave');
+        var gre;
+        ave.innerText = total;
+
+        /*
+        if( total >= 90 ){
+            gre = 'A';
+
+        }else if( total >= 80 ){
+            gre = 'B';
+
+        }
+        else if( total >= 70 ){
+            gre = 'C';
+
+        }
+        else if( total >= 60 ){
+            gre = 'D';
+
+        }else{
+            gre = 'F';
+
+        }
+        */
+
+         // 학점(switch) : 자바스크립트의 switch는 관계연산자 사용 가능함
+        switch( parseInt(total/10)){
+            
+            case 10:
+            case  9: gre = 'A'; break;
+            case  8: gre = 'B'; break;
+            case  7: gre = 'C'; break;
+            case  6: gre = 'D'; break;
+            default: gre = 'F';
+
+        }
+       
+
+
+        document.getElementById('gre').textContent = gre;
+
+
+    </script>
+</body>
+</html>
