@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div>
+        <h1>
+            <span id="hour"></span> :
+            <span id="minute"></span> :
+            <span id="secend"></span>
+            <span id="ampm"></span>
+        </h1>
+
+        
+    </div>
+    <style>
+        .over50{
+            color:red;
+        }
+
+    </style>
+    <script>
+        setInterval(function(){
+            var now = new Date();
+            var hour =  now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+
+
+            document.getElementById('hour').textContent = appendZero(hour >= 13 ? hour - 12 : hour);
+            document.getElementById('minute').textContent = appendZero(minute);
+            document.getElementById('secend').textContent = appendZero(second);
+            document.getElementById('ampm').textContent = hour < 12 ? 'AM' : 'PM';   
+            if( second >= 50 ){
+                document.getElementById('secend').className = 'over50';
+
+            }
+            else{
+                document.getElementById('secend').className = '';
+            }
+        },1000);
+        // 0 ~ 9 => 00 ~ 09
+        function appendZero(n){
+            return (n <= 9) ? '0' + n : '' + n;
+
+        }
+      
+    </script>
+
+</body>
+</html>

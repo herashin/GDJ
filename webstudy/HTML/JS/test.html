@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="frm2" action="https://www.google.com/search">
+        <input type="text" name="q" id="q">
+        <input type="button" value="검색" id="btn_google">
+
+    </form>
+    <script>
+        var frm2 = document.getElementById('frm2');
+        var btnGoogle = document.getElementById('btn_google');
+        var q = document.getElementById('q');
+
+
+        btnGoogle.onclick = function(event){
+            if(q.value == ''){
+                alert('검색어를 입력하세요');
+                q.focus();
+                return;
+            
+            
+            }   
+            frm2.submit();
+
+        }
+
+        
+    </script>
+
+
+</body>
+</html>
+
+
