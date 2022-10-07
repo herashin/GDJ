@@ -224,5 +224,80 @@
 
 
     </script>
+
+
+    <div id="box9">
+        <ul id="movies">
+            <li id="alien">에일리언</li>
+            <li id="terminator">터미네이터</li>
+            <li id="avatar">아바타</li>
+
+        </ul>
+
+    </div>
+    <script>
+
+        // 1. 특정 요소 제거
+        $('#alien').remove();
+
+        // 2. 전체제거
+        $('#movies').empty();
+
+    </script>
+
+
+    <div id="box10">
+        hello World
+    </div>
+    <style>
+        .bold_text{
+            font-weight: bold;
+            
+        }
+        .red_text{
+            color: red;
+        }
+
+    </style>
+
+
+    <script>
+
+        // 1. class 속성
+        // 1) 하나씩 추가
+        $('#box10').addClass('bold_text red_text');
+     //   $('#box10').addClass('');
+
+        // 2. class 속성 제거
+        $('#box10').removeClass('red_text');
+        // 3. class 속성 토글(추가/제거)
+        $('#box10').toggleClass('bold_text');
+        $('#box10').toggleClass('bold_text');
+
+
+    </script>
+
+
+
+    <box id="box11">
+        <button id="btn">서울 교통은 씨발이다</button>
+    </box>
+
+    <script>
+         $('#btn').on('click', function(event){
+            alert('서울 인구수는 에미가 뒤졌다 진짜 리얼이다 \n 화염방사기로 다 지져버리고싶다')
+
+        });
+
+
+        $('<button>').text('버튼2').attr('id','btn2').appendTo('#box11');
+
+        $('#box11').on('click','#btn', function(event){
+            alert('서울 인구수는 에미가 뒤졌다')
+
+        });
+
+       
+    </script>
 </body>
 </html>
