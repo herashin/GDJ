@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+
+	<div><button id="btn1">클릭</button></div>
+	<div id="box1"></div>
+	<script>
+		$('#btn1').on('click', function(event){
+			$('#box1').empty();
+			$.ajax({
+				/* 요청 */
+				type: 'GET',                     // 요청 메소드
+				url: '/01_Servlet/TextServlet',  // 요청 URL
+				data: 'name=신준호&age=-1',      // 요청 파라미터 (url: '/01_Servlet/TextServlet?name=민경태&age=45')
+				/* 응답 */
+				dataType: 'text',                // 응답 데이터 타입(text, xml, json)
+				success: function(resData){      // 응답 데이터는 resData에 전달됨
+					$('#box1').text(resData);
+				},
+				error: function(jqXHR){          // 예외 발생 시 예외 정보가 jqXHR 객체에 전달됨
+					$('#box1').append('status : ' + jqXHR.status + '<br>');			
+					$('#box1').append(jqXHR.responseText);
+				}
+			});
+		});
+	</script>
+	<hr>
+	
+	<div><button id="btn2">클릭</button> </div>
+	<div id="box2"></div>
+	<script type="text/javascript">
+		
+		$("#btn2").on('click', function(event){
+			
+			var box2 = $('#box2');
+			box2.empty();
+			$.ajax({
+				
+				/* 요청 */
+				type: 'GET',
+				url : '/01_Servlet/JSONServlet',
+				data: 'name=신준호&age=29',
+				dataType: 'JSON',
+				success: function(resdata){
+					console.log(resdata);
+					box2.html('<h1>이름: '+ resdata.name + ', 나이' + resdata.age + '살 </h1>');
+					
+				},
+				error: function(jqXHR){
+					box2.append('status : '+ jqXHR.status + '<br>');
+					box2.append(responseText);
+				}
+				
+			
+			})
+		});
+		
+	</script>
+	
+	<hr>
+	
+	<div><button id="btn3">클릭</button> </div>
+	<div id="box3">
+	
+	</div>
+	
+	<script type="text/javascript">
+	
+		
+		
+	$('#btn3').on('click', function(event){
+			
+			var box3 = $("#box3");
+			box3.empty();
+		$.ajax({
+			type: 'GET',
+			url : '/01_Servlet/XMLServlet',
+			data: 'name=신준호&age=29',
+			dataType: 'xml',
+			
+			
+			dataType: 'xml',
+			/*
+			success: function(resData){  // XML 처리는 이곳이 중요함
+				var ul = $('<ul>');
+				ul.append($('<li>').text($(resData).find('name').text()));
+				ul.append($('<li>').text($(resData).find('age').text()));
+				ul.appendTo(box3);
+			},
+			*/
+			
+			
+			
+			success: function(rasdata){
+				var ul = $('<ul>');
+				ul.append($('<li>').text($(rasdata).find('name').text()));
+				ul.append($('<li>').text($(rasdata).find('age').text()));
+				ul.appendTo(box3);
+			},
+			error: function(jqXHR){
+				box3.append('status: ' + jqXHR.status + '<br>');
+				box3.append(responseText);
+			}
+			
+		});
+		});
+	</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+</body>
+</html>
