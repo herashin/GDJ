@@ -1,8 +1,8 @@
 package 수업_리팩토링;
 
-import static 수업_리팩토링.강화매니저.scan;
-import static 수업_리팩토링.강화매니저.소지금;
-import static 수업_리팩토링.강화매니저.칼가방;
+import java.util.Scanner;
+
+import static 수업_리팩토링.강화매니저.*;
 
 public class 칼업그레이드 {
     public void 칼강화() {

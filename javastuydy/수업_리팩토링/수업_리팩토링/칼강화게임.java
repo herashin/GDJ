@@ -33,6 +33,5 @@ public class 칼강화게임 {
                     System.out.println("메뉴를 잘못 입력 하셨습니다.");
             }
         } while (menu != 5);
-        scan.close();
     }
 }

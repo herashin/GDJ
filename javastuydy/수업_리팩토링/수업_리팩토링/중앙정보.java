@@ -1,8 +1,6 @@
 package 수업_리팩토링;
 
-import static 수업_리팩토링.강화매니저.scan;
-import static 수업_리팩토링.강화매니저.소지금;
-import static 수업_리팩토링.강화매니저.칼가방;
+import static 수업_리팩토링.강화매니저.*;
 
 public class 중앙정보 {
     public void printMenu() {

@@ -1,8 +1,6 @@
 package 수업_리팩토링;
 
-import static 수업_리팩토링.강화매니저.names;
-import static 수업_리팩토링.강화매니저.가격s;
-import static 수업_리팩토링.강화매니저.칼가방;
+import static 수업_리팩토링.강화매니저.*;
 
 public class 칼생성현황 {
     칼 칼;
