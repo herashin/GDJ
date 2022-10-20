@@ -24,7 +24,7 @@
 			// 제목이 비어 있는 경우
 			if($("#title").val() == ''){
 				alert("제목은 필수입니다");
-				event.preventDefault();
+				event.spreventDefault();
 				return;
 			}
 		});
@@ -32,6 +32,7 @@
 		
 		$('#btn_list').click(function(event){
 			location.href= '${contextPath}/board/list.do';
+			
 		});
 	});
 </script>

@@ -15,6 +15,10 @@
 	$(document).ready(function(){
 		$('#btn_write').click(function(){
 			location.href = '${contextPath}/board/write.do';
+			
+			
+			
+			
 		});
 		
 	});
@@ -44,7 +48,7 @@
 						<td>${board.board_no}</td>
 						<td><a href="${contextPath}/board/detail.do?board_no=${board.board_no}">${board.title}</a></td>
 						<td>${board.create_date}</td>
-						<td style="text-align:center">
+						<td style="text-align:center" id="icon_dele" class="">
 							<a href=""><i class="fa-sharp fa-solid fa-gift"></i></a>
 						</td>
 					</tr>
