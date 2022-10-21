@@ -109,7 +109,25 @@ public class StudentDao {
 	}
 	
 	
+	// 9. 학생상세보기
+	public Student selectStudentByNo(int stuNo) {
+		SqlSession ss = factory.openSession();
+		Student student = ss.selectOne(mapper + "selectStudentByNo", stuNo);
+		ss.close();
+		return student;
+		
+	}
 	
+	// 10. 학생 수정
+	public int updateStudent(Student student) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.update(mapper + "updateStudent", student);
+		if( result > 0  ) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
 	
 	
 	
