@@ -10,12 +10,26 @@
 %>
 <title>Insert title here</title>
 <script src="../assets/js/jquery-3.6.1.min.js"></script>
+<link rel="stylesheet" href="../assets/css/member.css">
 <script>
 	onload = function(){
+		fn_init();
 		fn_getAllMembers();
 		fn_getMember();
 		fn_registration();
-	};
+		fn_modify();
+		fn_remove();
+		directDel();
+};
+	
+	function fn_init(){
+		$('#id').val('').prop('readonly',false);
+		$('#name').val('');
+		$(':radio[name=gender]').prop('checked',false);
+		$('#grade').val('');
+		$('#address').val('');
+	}
+	
 	
 	
 	function fn_getAllMembers(){
@@ -40,8 +54,12 @@
 					tr += '<td>' + (member.gender == 'M' ? '남자' : '여자') + '</td>';
 					tr += '<td>' + member.grade + '</td>';
 					tr += '<td>' + member.address + '</td>';
-					tr += '<td><input type="hidden" value="'+member.memberNo+'"><input type="button" value="조회" class="btn_detail"></td>';
+					tr += '<td><input type="hidden" value="' + member.memberNo + '"><input type="button" value="조회" class="btn_detail"><input type="button" value="삭제" class="btn_remove"><input type="hidden" value="' + member.memberNo + '"></td>'; 
+					tr += '<td class="directDel">삭제</td>';
 					tr += '</tr>';
+					
+					
+					
 					$('#member_list').append(tr);
 				});
 			}
@@ -68,6 +86,7 @@
 						$(':radio[name=gender][value='+resData.member.gender+']').prop('checked', true);
 						$('#grade').val(resData.member.grade);
 						$('#address').val(resData.member.address);
+						$('#memberNo').val(resData.member.memberNo);
 					}else{
 						alert('조회된 회원 정보가 없습니다.');
 					}
@@ -84,6 +103,8 @@
 		
 	}
 	
+	
+	
 	function fn_registration(){
 		
 		$('#btn_add').click(function(){ 
@@ -98,7 +119,8 @@
 				success: function(resData){
 					if(resData.isSuccess){
 						alert("신규회원이 등록되었습니다.");
-						fn_getAllMembers();
+						fn_getAllMembers(); // 목록을 새로 가져와서 갱신함
+						fn_init(); // 입력된 데이터를 초기화
 					}else{
 						alert('신규 회원등록이 실패했습니다.');
 					}
@@ -114,6 +136,73 @@
 		});
 		
 	}	// function
+	
+function fn_modify(){
+		
+		$('#btn_modify').click(function(){
+			
+			$.ajax({
+				/* 요청 */
+				type: 'post',
+				url: '${contextPath}/member/modify.do',
+				data: $('#frm_member').serialize(),
+				/* 응답 */
+				dataType: 'json',
+				success: function(resData){  // resData : {"isSuccess": true}
+					if(resData.isSuccess){
+						alert('회원 정보가 수정되었습니다.');
+						fn_getAllMembers();  // 수정된 내용이 반영되도록 회원목록을 새로 고침
+					} else {
+						alert('회원 정보 수정이 실패했습니다.');
+					}
+				},
+				error: function(jqXHR){
+					alert(jqXHR.responseText);
+				}
+			});  // ajax
+			
+		});  // click
+		
+	}  // function
+	
+	
+	function fn_remove(){
+		$('body').on('click', '.btn_remove', function({
+					
+	
+			if(confirm('삭제할까요?') == false){
+				return;
+			}
+			
+			$.ajax({
+				
+				type:'GET',
+				url : '${contextPath}/member/remove.do',
+				data: 'memberNo=' + $(this).next().val(),
+				dataType: 'json',
+				success: function(resData){// resData : {"isSuccess": true}
+					if(resData.isSuccess ){
+						alert('회원 정보가 삭제되었습니다.');
+						fn_getAllMembers();
+						fn_init();
+					}else{
+						alert('회원 정보 삭제가 실패했습니다.')
+					}
+				},
+				error: function(jqXHR){
+					alert(jaXHR.responseText);
+				}
+				
+				
+			})
+		});
+	}// function 
+	
+		
+
+
+		
+			
 	
 </script>
 </head>
@@ -157,11 +246,12 @@
 				<label for="addres">주소</label>
 				<input type="text" id="address" name="address">
 			</div>
-			<div>
-				<input type="button" value="초기화" id="btn_init" >
-				<input type="button" value="신규등록" id="btn_add" >
-				<input type="button" value="변경내용저장" id="btn_modify" >
-				<input type="button" value="회원삭제" id="btn_remove" >
+			<div class="btn_area">
+				<input type="button" value="초기화" class="btn_primary" onclick="fn_init();">
+				<input type="button" value="신규등록" id="btn_add" class="btn_primary">
+				<input type="button" value="변경내용저장" id="btn_modify" class="btn_primary">
+				<input type="button" value="회원삭제" id="btn_remove" class="btn_primary  btn_remove">
+				<input type="hidden" id="memberNo">			
 			</div>
 		</form>
 		<hr>
@@ -175,7 +265,7 @@
 					<td>성별</td>
 					<td>등급</td>
 					<td>주소</td>
-					<td></td>
+					<td></td>					
 				</tr>
 			</thead>
 			<tbody id="member_list">

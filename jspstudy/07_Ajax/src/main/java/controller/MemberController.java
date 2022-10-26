@@ -12,6 +12,8 @@ import common.ActionForward;
 import service.MemberAddService;
 import service.MemberDetailService;
 import service.MemberListService;
+import service.MemberModifyService;
+import service.MemberRemoveService;
 import service.MemberService;
 
 @WebServlet("*.do")
@@ -52,7 +54,16 @@ public class MemberController extends HttpServlet {
 		case "/member/add.do":
 			service = new MemberAddService();
 			break;
+		case "/member/modify.do":
+			service = new MemberModifyService();
+			break;
+		
+		case "/member/remove.do":
+			service = new MemberRemoveService();
+			break;
+			
 		}
+		
 		
 		
 		
