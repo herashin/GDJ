@@ -19,7 +19,7 @@ public class MemberDao {
 	private MemberDao() {
 		try {
 			// SqlSessionFactory 빌드
-			String resource = "config/mybatis-config.xml";
+			String resource = "mybatis/config/mybatis-config.xml";
 			InputStream in = Resources.getResourceAsStream(resource);
 			factory = new SqlSessionFactoryBuilder().build(in);
 		} catch (Exception e) {
@@ -30,7 +30,7 @@ public class MemberDao {
 		return dao;
 	}
 	
-	String mapper = "mapper.member.";
+	String mapper = "mybatis.mapper.member.";
 	
 	public Member login(Member member) {
 		SqlSession ss = factory.openSession();
@@ -38,6 +38,29 @@ public class MemberDao {
 		ss.close();
 		return login;
 	}
+	
+	public int insertMember(Member member) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.insert(mapper + "insertMember", member);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+	
+	
+	public int deleteMember(int memberNo) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.delete(mapper+ "deleteMember",memberNo);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
+	
+	
 	
 	
 	

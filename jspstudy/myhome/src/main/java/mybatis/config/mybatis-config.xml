@@ -6,7 +6,7 @@
    <configuration>
    
    <!-- db.properties 파일 경로 설정 -->
-   <properties resource="config/db.properties"></properties>
+   <properties resource="mybatis/config/db.properties"></properties>
    
    <!-- snake_case(DB) to cameCase(Java) -->
    <settings>
@@ -31,6 +31,6 @@
        </environment>
      </environments>
      <mappers>
-       <mapper resource="mapper/member.xml"/>
+       <mapper resource="mybatis/mapper/member.xml"/>
      </mappers>
    </configuration>

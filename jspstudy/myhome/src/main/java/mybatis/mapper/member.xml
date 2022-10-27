@@ -23,7 +23,7 @@
 	<delete id="deleteMember" parameterType="int" >
 		DELETE
 			FROM MEMBER
-		WHERE MEMER_NO = #{memberNo}	
+		WHERE MEMBER_NO = #{memberNo}	
 		
 	</delete>
 	

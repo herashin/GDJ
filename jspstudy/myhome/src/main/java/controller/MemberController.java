@@ -29,13 +29,13 @@ public class MemberController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String urlMapping = requestURI.substring(contextPath.length());
 		
-		// MemberService 객체 생성 
+		// MemberServiceImpl 객체 생성(
 		MemberService service = new MemberServiceImpl();
 		
 		// ActionForward 객체
 		ActionForward af = null;
 		
-		// 요청에 따른 Service 선택
+		// 요청에 따른 메소드 선택 및 실행
 		switch(urlMapping) {
 		case "/member/login.me":
 			af = service.login(request, response);
@@ -43,9 +43,20 @@ public class MemberController extends HttpServlet {
 		case "/member/logout.me":
 			af = service.logout(request, response);
 			break;
+		case "/member/join.me":
+			af = new ActionForward("/member/join.jsp", false);
+			break;
+		case "/member/register.me":
+			service.register(request, response);  // af 없이 register() 메소드 내부에서 직접 이동
+			break;
+		case "/member/cancel.me":
+			service.cancel(request, response); // af 없이 cancel() 메소드 내부에서 직접
+			break;
+			
+		default:
+			System.out.println("매핑을 확인하세요.");
+			
 		}
-		
-		
 		
 		// 어디로 어떻게 이동하는가?
 		if(af != null) {
