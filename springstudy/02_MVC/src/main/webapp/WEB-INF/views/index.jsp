@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+	<a href="${contextPath}/animal">더ㅓㅇ물보러가기</a>
+	
+	<hr>
+	
+	<a href="${contextPath}/flower">꽃보러가기</a>
+	
+	<hr>
+	
+	<a href="${contextPath}/animal/flower">동물보러갔다가 꽃 보러가기</a>
+	
+	<hr>
+	
+	<a href="${contextPath}/want/animal?filename=animal5.png">animal5 보러가기</a>
+	
+	<hr>
+	
+	<a href="${contextPath}/response">dddd</a>
+	
+	<hr>
+	
+	<a href="${contextPath}/want/animal?filename=pretty.jpeg.png">이뿐나영이 보러가기</a>
+	
+</body>
+</html>
