@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.gdu.app05.service.BoardService;
 import com.gdu.app05.service.BoardServiceImpl;
+import com.gdu.app05.service.GalleryService;
+import com.gdu.app05.service.GalleryServiceImpl;
 
 @Configuration
 public class SpringBeanConfig {
@@ -12,6 +14,12 @@ public class SpringBeanConfig {
 	@Bean
 	public BoardService boardService() {
 		return new BoardServiceImpl();
+	}
+	
+	
+	@Bean
+	public GalleryService galleryService() {
+		return new GalleryServiceImpl();
 	}
 	
 }

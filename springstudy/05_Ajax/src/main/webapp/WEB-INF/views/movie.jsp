@@ -22,22 +22,31 @@
 		$.ajax({
 			type: 'get',
 			data: 'targetDt=' + $('#targetDt').val(),
-			url: 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=58d4344c17fc0c06989263d0f1d2da2f&targetDt='+dayday,
-			dateType: 'json',
+			url: '${contextPath}/movie/boxOfficeList',
+			dataType: 'json',
 			success: function(resData){
 				$('#boxOfficeList').empty();
 				
-				$.each(resData.boxOfficeResult.dailyBoxOfficeList,function(i,movie){
+				$.each(resData.boxOfficeResult.dailyBoxOfficeList, function(i, movie){
+					
+					/*
 					var tr = '<tr>';
-					tr += '<td>' + resData.rank + '</td>';
-					tr += '<td>' + resData.movieNm + '</td>';
-					tr += '<td>' + resData.openDt + '</td>';
-					tr += '<td>' + resData.audiCnt + '</td>';
-					tr += '<td>' + resData.audiAcc + '</td>';
+					tr += '<td>' + movie.rank + '</td>';
+					tr += '<td>' + movie.movieNm + '</td>';
+					tr += '<td>' + movie.openDt + '</td>';
+					tr += '<td>' + movie.audiCnt + '</td>';
+					tr += '<td>' + movie.audiAcc + '</td>';
 									
 					tr += '</tr>';
 					$('#boxOfficeList').html(tr);
-				
+					*/
+					$('<tr>')
+					.append( $('<td>').text(movie.rank))
+					.append( $('<td>').text(movie.movieNm))
+					.append( $('<td>').text(movie.openDt))
+					.append( $('<td>').text(movie.audiCnt))
+					.append( $('<td>').text(movie.audiAcc))
+					.appendTo('#boxOfficeList');
 				});
 			}
 		});
