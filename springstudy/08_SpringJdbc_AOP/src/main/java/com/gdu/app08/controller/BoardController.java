@@ -37,6 +37,7 @@ public class BoardController {
 	}
 	
 	
+	
 	@GetMapping("brd/write")
 	public String write() {
 		return "board/write";  // board 폴더의 write.jsp로 forward
