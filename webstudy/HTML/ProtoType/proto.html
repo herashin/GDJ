@@ -13,9 +13,14 @@
         a{text-decoration: none;
             color: #000000;
         }
+        body{
+            background-color: #FFF3E0;
+        }
+
         li{list-style: none;}
 
         .wrapper{
+            background-color: #fff;
             border:1px solid #000;
             width:70%; 
             min-width:360px;
@@ -29,6 +34,27 @@
         }
 
 
+        /*  상단 광고배너 영역 */
+        .top_banner_area{
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .container{}
+
+/* 날씨 그림영역 &&&&  날짜 시간 영역 시작 */
+        .top_weather_and_temperature{
+            display: flex;
+            margin:5px 0;
+            justify-content: space-between;
+            height:200px;
+
+        }
+        .top_weather_area{
+          
+            border: 1px solid #000;
+            text-align: center;
+        }
 
         .temperature_and_weatherZone{
 
@@ -37,22 +63,29 @@
             justify-content: center;
         }
 
+        .weatherZone{
+            border: 1px solid #000;
+        }
+        
         .temperature{
             margin-right:40px;
 
         }
+/* 날씨 그림영역 &&&&  날짜 시간 영역  끝*/
 
+
+/*  오늘의 날씨 한줄 영역 시작  */
         .weather_text_area{
-
+            border: 1px solid #000;
             margin:0 0 50px 0;
         }
-
+/*  오늘의 날씨 한줄 영역 끝 */
         .character_container{
 
-            width:70%; 
-            margin:0 auto;
+          /*  width:70%; */
+        /*    margin:0 auto;*/
 
-            overflow:hidden;
+         /*   overflow:hidden;*/
 
 
         }
@@ -64,11 +97,39 @@
         }
         */
         .character_boxs{
-
-            width:30%;
+            outline: 1px solid #ddd;
+        /*    width:30%;*/
             height:300px;
 
         }
+
+
+        .mid_banner{
+            margin:10px 0;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .week_weather_area{
+            border: 1px #000;
+
+        }
+
+        .week_weather_days{
+            border: 1px solid #FFC9C2;
+            background-color: #FFF7F6;
+            padding:2% 0;
+        }
+
+
+
+
+        .footer{
+            border: 1px solid #000;
+            margin:5% 0 0;
+        
+        }
+
     </style>
 </head>
 <body>
@@ -85,25 +146,29 @@
 
 
         <section class="container">
-            <div class="top_weather_area">
-                날씨 그림 영역
-
-            </div>
-
-
-            <div class="temperature_and_weatherZone">
-
-                <div class="temperature">
-                    온도
+            <div class="top_weather_and_temperature">
+                <div class="top_weather_area">
+                    날씨 그림 영역
 
                 </div>
 
-                <div class="weatherZone">
-                    지역
 
+                <div class="temperature_and_weatherZone">
+                   <!-- 
+                    <div class="temperature">
+                        온도
+
+                    </div>
+
+                    <div class="weatherZone">
+                        지역
+
+                    </div> -->
+                    <div class="weatherZone">
+                        날짜 & 시간
+                    </div>
+                    
                 </div>
-
-                
             </div>
             <div class="weather_text_area">
                 <p>오늘 날씨는 구름이 많아요. 다소 쌀쌀할 수 있으므로.... </p>
@@ -116,9 +181,9 @@
       
 
                 <!-- Slider main container -->
-                <div class="swiper character_container">
+                <div class="swiper character_container mySwiper">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper mySwiper">
+                    <div class="swiper-wrapper ">
                     <!-- Slides -->
                         <div class="swiper-slide character_boxs"> 캐릭터 일러스트1</div>
                         <div class="swiper-slide character_boxs"> 캐릭터 일러스트2</div>
@@ -134,15 +199,49 @@
                     <div class="swiper-pagination"></div>
                 
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
+                    <!-- <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-                
+                 -->
                     <!-- If we need scrollbar -->
                     <div class="swiper-scrollbar"></div>
+                </div>    
+                
+                <div class="mid_banner">
+                    중단 광고배너
+
+                </div>
+        </section>
+
+
+        <section>
+            <div class="week_weather_area">
+
+                <div class="week_weather_today  week_weather_days">
+                    요일별 날씨안내, 날씨아이콘, 온도 
+                </div>
+                <div class="week_weather_tomorrow  week_weather_days">
+                    내일
                 </div>
 
-           
+                <div class="week_weather_day_plus1  week_weather_days">
+                    section13
+                </div>
+
+                <div class="week_weather_day_plus2  week_weather_days">
+                    section14
+                </div>
+            </div>
+
+
         </section>
+
+
+
+
+
+
+
+
 
 
         <footer class="footer">
@@ -160,8 +259,8 @@
             
       
 var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 30,
+        slidesPerView: 2,
+        spaceBetween: 5,
         centeredSlides: true,
         pagination: {
           el: ".swiper-pagination",
