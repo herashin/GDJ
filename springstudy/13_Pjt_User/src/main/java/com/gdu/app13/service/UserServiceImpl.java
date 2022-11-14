@@ -67,11 +67,7 @@ public class UserServiceImpl implements UserService {
 			        (3) 생성 버튼 : 16자리 앱 비밀번호를 생성해 줌(이 비밀번호를 이메일 보낼 때 사용)
 		*/
 		
-		
-		// 이메일을 보내는 사용자 정보
-		 String username = "webjunho@gmail.com"; // 본인 지메일 주소
-         String password= "ujxrcqwswaieuijo";   // 발급 받은 앱 비밀번호
-		
+	
 		// 사용자 정보를 javax.mail.Session에 저장
 		Session session = Session.getInstance(properties, new Authenticator() {
 			@Override
