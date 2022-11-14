@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core"   prefix="c" %>
-<c:set var="contextPath"  value="${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${contextPath}/resources/js/jquery-3.6.1.min.js"></script>
-<script src="${contextPath}/resources/css/agree.js"></script>
+<script src="${contextPath}/resources/js/agree.js"></script>
 <link href="${contextPath}/resources/css/agree.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -17,7 +17,7 @@
 			
 		<h1>약관 동의하기</h1>
 		
-		<form id="frm_agree" action="${contextPath}/user/write/join">
+		<form id="frm_agree" action="${contextPath}/user/join/write">
 			
 			<div>
 				<input type="checkbox" id="check_all"  class="blind">
