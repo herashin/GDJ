@@ -7,6 +7,10 @@
 	<name>13_Pjt_User</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
+	
+	
+
+
 
 	<properties>
 		<java-version>11</java-version>
@@ -16,6 +20,14 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20220924</version>
+		</dependency>
+	
 
 		<!-- 암호화/복호화 -->
 		<dependency>
