@@ -16,6 +16,6 @@ public interface BlogService {
 	public Map<String, Object> saveSummernoteImage(MultipartHttpServletRequest multipartRequest);
 	public int increseBlogHit(int blogNo);
 	public BlogDTO getBlogByNo(int blogNo);
-	
-	
+	public void modifyBlog(HttpServletRequest request, HttpServletResponse response);
+	public void removeBlog(HttpServletRequest request, HttpServletResponse response);
 }
