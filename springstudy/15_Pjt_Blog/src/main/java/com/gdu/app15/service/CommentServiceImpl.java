@@ -35,15 +35,15 @@ public class CommentServiceImpl implements CommentService {
 		return result;
 	}
 	
-	
 	@Override
 	public Map<String, Object> getCommentList(HttpServletRequest request) {
-		 
+		
 		int blogNo = Integer.parseInt(request.getParameter("blogNo"));
 		int page = Integer.parseInt(request.getParameter("page"));
 		
 		int commentCount = commentMapper.selectCommentCount(blogNo);
 		pageUtil.setPageUtil(page, commentCount);
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("blogNo", blogNo);
 		map.put("begin", pageUtil.getBegin());
@@ -53,13 +53,22 @@ public class CommentServiceImpl implements CommentService {
 		result.put("commentList", commentMapper.selectCommentList(map));
 		result.put("pageUtil", pageUtil);
 		
-		
-		
 		return result;
-	
+		
 	}
 	
+	@Override
+	public Map<String, Object> removeComment(int commentNo) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("isRemove", commentMapper.deleteComment(commentNo) == 1);
+		return result;
+	}
 	
-	
+	@Override
+	public Map<String, Object> addReply(CommentDTO reply) {
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("isAdd", commentMapper.insertReply(reply) == 1);
+		return result;
+	}
 	
 }
